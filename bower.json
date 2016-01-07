@@ -1,0 +1,28 @@
+{
+  "name": "congressional-stalker",
+  "description": "Stay informed, see how your elected officials are using thier post",
+  "main": "client/app.js",
+  "authors": [
+    "Sean Reimer",
+    "Delphine Foo-Matkin",
+    "Santosh Guatam",
+    "Bryan Bierce"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Delorean11/Delorean11",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "Materialize": "materialize#~0.97.5",
+    "angular-resource": "~1.4.8"
+  }
+}
