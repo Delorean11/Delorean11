@@ -13,6 +13,7 @@ app.use(morgan('dev'));
 
 app.use('/api', routes);
 
+
 console.log('Server now listening on port ' + port);
 
 //Connect to db
