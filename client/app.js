@@ -1,17 +1,20 @@
-angular.module('CongressionalStalker', ['ui.router'])
-.config(['$stateProvider', '$urlRouteProvider', function($stateProvider, $urlRouteProvider) {
-  $urlRouteProvider.otherwise('/');
+angular.module('CongressionalStalker', ['Search', 'Results', 'ui.router'])
+.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
+  function($stateProvider, $urlRouterProvider, $httpProvider) {
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
     .state('main', {
       url: '/',
-      templateUrl: 'client/components/search/searchView.html',
+      templateUrl: 'components/search/searchView.html',
       controller: 'SearchController'
     })
     .state('results', {
       url:'/results',
-      templateUrl: 'client/components/results/resultsView.html',
+      templateUrl: 'components/results/resultsView.html',
       controller: 'ResultsController'
     });
 
 }]);
+
+console.log('in app.js');
