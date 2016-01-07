@@ -19,26 +19,44 @@ Once the project moves into development, the press release can be used as a touc
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
 
+  Congressional Stalker
+
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+
+  Better inform yourself, find out what your local officials are really doing!
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
+  Congressional Stalker is an app that allows you to quickly research the voting habits of your elected officials. It puts a readable filter on voting history allowing you to see how they voted on issues that matter to you. 
+
 ## Problem ##
   > Describe the problem your product solves.
+
+  Although voting data is plentiful it is difficult to parse through and finding out how your Congressperson voted on the issues you care about shouldn't require an afternoon of research.  
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
 
+  Quickly deliver the decision history that is relevant about any particular elected official on any particular issue. All in one place.
+
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+
+  "With our app in hand become a more informed citizen without an unreasonable investment of your time."
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
 
+  Type in the name of an official and get all the data you need!
+
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
 
+  "I used to have no idea what my congress people were doing, now I can find out anything I want with just a click of a button."
+
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+
+  Don't stay ignorant, keep yourself informed: head on over!
