@@ -31,11 +31,13 @@ git clone (from your fork).
 git branch (include new branchName). 
 git checkout `your-branch-name` # Do your work here using: 
 # after completing ur work
+git commit from your features branch (Use # for waffle.io)
 git checkout master.
 git pull upstream master. #updating any changes.
 git checkout feature.
 git rebase master.
 git checkout master.
+git merge feature branch
 git push origin master.
 be awesome and go submit a pull request.
 
