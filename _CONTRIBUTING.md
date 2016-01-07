@@ -17,7 +17,7 @@
   - (test) ...
   - (doc) ...
 1. When you've finished with your fix or feature, Rebase upstream changes into your branch. submit a [pull request][]
-   directly to master. Include a description of your changes.
+   directly to master. Include a description of your changes. Make sure you close your waffle by appending "closed #(issue number)" on your commit message.
 1. Your pull request will be reviewed by another maintainer. The point of code
    reviews is to help keep the codebase clean and of high quality and, equally
    as important, to help you grow as a programmer. If your code reviewer
@@ -27,6 +27,18 @@
 1. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
 
 ## Detailed Workflow
+git clone (from your fork).
+git branch (include new branchName). 
+git checkout `your-branch-name` # Do your work here using: 
+# after completing ur work
+git checkout master.
+git pull upstream master. #updating any changes.
+git checkout feature.
+git rebase master.
+git checkout master.
+git push origin master.
+be awesome and go submit a pull request.
+
 
 ### Fork the repo
 
