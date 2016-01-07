@@ -5,7 +5,7 @@ module.exports = function(grunt){
       options: {
         seperator: ';'
       },
-      dist {
+      dist: {
         src: ['client/**/*.js'],
         dest: 'client/dist/app.js'
       }
