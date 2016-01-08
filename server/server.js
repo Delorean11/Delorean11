@@ -19,9 +19,24 @@ var app = express();
 var port = process.env.PORT || 4556;
 app.use(express.static(__dirname + '/../client'));
 app.listen(port);
+
+
+// require('./config/passport')(passport); // pass passport for configuration
+
+
 app.use(morgan('dev'));
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
+
+
+app.use(session({ secret: 'testSecret' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+// app.use(flash()); // use connect-flash for flash messages stored in session
+
+require('/routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+app.use('/api', routes);
+
 
 console.log('Server now listening on port ' + port);
 app.use('/api', routes);
