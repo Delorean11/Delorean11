@@ -1,17 +1,18 @@
 <div>
-  <p ng-repeat="vote in currentNumber.votes">{{vote.bill.title}}</p>
   <div>
-    <h2>{{singleMember.first_name}} {{singleMember.middle_name}} {{singleMember.last_name}}</h2>
-    <p>State: {{singleMember.state}}</p>
-    <p>District: {{singleMember.district}}</p>
+    <h2>{{memberInfo.name}}</h2>
+    <p>State: {{memberInfo.state}}</p>
+    <p>District: {{memberInfo.district}}</p>
     <p>Party:
-      <span ng-if="singleMember.party === 'D'">Democratic</span>
-      <span ng-if="singleMember.party === 'R'">Republican</span>
+      <span ng-if="memberInfo.party === 'D'">Democratic</span>
+      <span ng-if="memberInfo.party === 'R'">Republican</span>
     </p>
-    <a href="{{singleMember.url}}" target="_blank">Website</a>
+    <a href="{{memberInfo.url}}" target="_blank">Website</a>
   </div>
 
   <table>
-
+    <tr ng-repeat="vote in currentMember.votes | limitTo:20">
+      <td ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">{{vote.bill.title}} <br>{{vote.question}}</td>
+    </tr>
   </table>
 </div>
