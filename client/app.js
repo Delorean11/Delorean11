@@ -15,6 +15,15 @@ angular.module('CongressionalStalker', ['Search', 'Results', 'ui.router'])
       controller: 'ResultsController'
     });
 
-}]);
+}])
+.factory('SearchConnector', ['$http', function($http){
+  var resultObject = function (queryResult, cb){
+    var passedObject = queryResult;
+    cb()
+  };
 
-console.log('in app.js');
+  return {
+    resultObject: resultObject
+  }
+
+}]);
