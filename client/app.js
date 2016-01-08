@@ -19,7 +19,7 @@ angular.module('CongressionalStalker', ['Search', 'Results', 'ui.router'])
 .factory('SearchConnector', ['$http', function($http){
   var resultObject = function (queryResult, cb){
     var passedObject = queryResult;
-    cb()
+    cb(passedObject)
   };
 
   return {
