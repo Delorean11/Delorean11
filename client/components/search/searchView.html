@@ -1,4 +1,16 @@
-<div>
-  Hello I'm Search View
-  {{1+1}}
+<div class='cyan lighten-3 z-depth-1'>
+  <div class='row'>
+    <h1 class='col s12 center-align'>Congressional Stalker</h1>
+    <h4 class='col s12 center-align'>Find out what you're elcted officials are doing</h4>
+    <br>
+  </div>
+</div>
+<div class='container'>
+  <div class='row'>
+    <form name='search' class='col s12' novalidate> 
+      <input class='col s12 z-depth-3 hoverable' type='text' placeholder="Who's you're congress person?" name='person' ng-submit='' ng-model='congressPerson' ng-pattern='/[A-Z a-z]/' required>
+      <button class='center-align col s2 btn waves-effect waves-light'type='submit'>Search<i class="material-icons right">send</i></button>
+      <p ng-if='search.person.$invalid && search.person.$dirty'>Not a valid name</p>
+    </form> 
+  </div>
 </div>

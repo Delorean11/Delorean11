@@ -8,9 +8,7 @@ app.use(express.static(__dirname + '/../client'));
 app.listen(port);
 app.use(morgan('dev'));
 
-//to use routes defined in routes/routes
 app.use('/api', routes);
-
 
 console.log('Server now listening on port ' + port);
 
