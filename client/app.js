@@ -6,6 +6,8 @@ angular.module('CongressionalStalker', [
   'Login',
   'Logout'
   ])
+
+
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
   function($stateProvider, $urlRouterProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
@@ -41,7 +43,6 @@ angular.module('CongressionalStalker', [
       templateUrl: 'auth/logout.html',
       controller: 'LogoutController'
    })
-
 }])
 .factory('SearchConnector', ['$http', function($http){
   // Factory exists to pass objects from one controller to the next

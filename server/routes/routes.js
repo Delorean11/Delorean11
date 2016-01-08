@@ -5,10 +5,12 @@ var CongressPerson = require('../models/congressPersonModel');
 var router = express.Router();
 var passport = require('passport');
 
+
 router.get('/auth', function(req, res){
   res.send('You reached the AUTH route!');
 });
 
+<<<<<<< 5102def2c970efc6ce4da7e1dffb0234d01c8409
 <<<<<<< da6b65da15399aedeebcb807f01d2fbfe066f0dd
 router.get('/allMembers', function(req, res){
   CongressPerson.find({}, function(err, people){
@@ -32,5 +34,19 @@ router.get('/login', function(req,res){
   console.log(passport);
 >>>>>>> In middle of making server.js connect to passport
 });
+=======
+>>>>>>> Sets up infrastructure to connect sessions. Login.js recieves response from server.
 
+
+/*
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
+*/
 module.exports = router;

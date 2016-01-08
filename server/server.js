@@ -9,9 +9,9 @@ var seedConstructors = require('./models/seedConstructors');
 
 // Dependencies needed for Authentication
 var passport = require('passport');
-var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
+var session = require('express-session');
 //
 
 
@@ -25,6 +25,7 @@ app.listen(port);
 
 
 app.use(morgan('dev'));
+
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
 
@@ -32,10 +33,6 @@ app.use(bodyParser()); // get information from html forms
 app.use(session({ secret: 'testSecret' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-// app.use(flash()); // use connect-flash for flash messages stored in session
-
-require('/routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-app.use('/api', routes);
 
 
 console.log('Server now listening on port ' + port);
@@ -65,5 +62,16 @@ db.once('open', function() {
   console.log('congressionalStalker db opened');
 });
 
+<<<<<<< 5102def2c970efc6ce4da7e1dffb0234d01c8409
+=======
+//require('/routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
+// For authentication page go to localhost:****/api/auth
+// Angular routes are localhost:****/#/auth
+app.use('/api', routes);
+console.log('Server now listening on port ' + port);
+
+
+>>>>>>> Sets up infrastructure to connect sessions. Login.js recieves response from server.
 module.exports = app;
 

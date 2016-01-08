@@ -18,14 +18,12 @@
   },
   "homepage": "https://github.com/Delorian11/Delorean11#readme",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
+    "bcrypt-nodejs": "latest",
     "body-parser": "^1.14.2",
     "bower": "^1.7.2",
     "express": "^4.13.3",
     "express-partials": "^0.3.0",
-    "passport" : "~0.1.17",         
-    "passport-local" : "~0.1.6",
-    "bcrypt-nodejs" : "latest",
+    "express-session": "^1.12.1",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.7.0",
@@ -38,7 +36,15 @@
     "grunt-shell": "^1.1.2",
     "http": "0.0.0",
     "kerberos": "0.0.17",
+<<<<<<< 5102def2c970efc6ce4da7e1dffb0234d01c8409
     "mongoose": "3.8",
     "morgan": "^1.6.1"
+=======
+    "mongoose": "^4.3.4",
+    "morgan": "^1.6.1",
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6",
+    "cookie-parser": "^1.4.0"
+>>>>>>> Sets up infrastructure to connect sessions. Login.js recieves response from server.
   }
 }
