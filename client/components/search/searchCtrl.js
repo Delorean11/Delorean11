@@ -6,7 +6,7 @@ angular.module('Search', [])
   $scope.getAllMembers = function() {
     $http({
       method: 'GET',
-      url: 'http://api.nytimes.com/svc/politics/v3/us/legislative/congress/' + congressNumber + '/' + house + '/members.json?api-key=' + api_key
+      url: '//api.nytimes.com/svc/politics/v3/us/legislative/congress/' + congressNumber + '/' + house + '/members.json?api-key=' + api_key
     })
     .success(function(data) {
       if(!localStorage.getItem('members')) {
@@ -45,7 +45,7 @@ angular.module('Search', [])
     if (memberId){
       $http({
         method: 'GET',
-        url: 'http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/' + memberId + '/votes.json?api-key=' + api_key
+        url: '//api.nytimes.com/svc/politics/v3/us/legislative/congress/members/' + memberId + '/votes.json?api-key=' + api_key
       })
       .success(function(data) {
 
