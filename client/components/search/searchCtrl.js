@@ -19,28 +19,40 @@ angular.module('Search', [])
           memberIds[fullNameKey] = userId;
         });
         localStorage.setItem('memberIds', JSON.stringify(memberIds));
-        // We need to JSON.parse and JSON.stringify when working 
+        // We need to JSON.parse and JSON.stringify when working
         // with local storage because we can only store strings.
-        console.log(JSON.parse(localStorage.getItem('memberIds')));
+        // console.log(JSON.parse(localStorage.getItem('memberIds')));
       }
-    })
+    });
   };
 
   $scope.searchById = function(name) {
     name = name.toLowerCase();
     var memberId = JSON.parse(localStorage.getItem('memberIds'))[name];
-    console.log(memberId)
+    console.log(memberId);
     if (memberId){
       $http({
         method: 'GET',
         url: 'http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/' + memberId + '/votes.json?api-key=' + api_key
       })
       .success(function(data) {
+<<<<<<< HEAD
         $rootScope.currentNumber = data.results[0];
         $state.go('results');
         console.log($rootScope.currentNumber.votes);
+=======
+        $rootScope.singleMember = data;
+        console.log($rootScope.singleMember);
+>>>>>>> Added some changes to results view.
       });
     }
+<<<<<<< HEAD
   }
+=======
+  };
+
+
+
+>>>>>>> Added some changes to results view.
   $scope.getAllMembers();
 }]);
