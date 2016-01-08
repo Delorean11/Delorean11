@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "nodemon server/server.js",
-    "postinstall": "bower install"
+    "postinstall": "bash ./post_install.sh"
   },
   "repository": {
     "type": "git",
