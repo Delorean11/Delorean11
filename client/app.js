@@ -17,10 +17,18 @@ angular.module('CongressionalStalker', ['Search', 'Results', 'ui.router'])
 
 }])
 .factory('SearchConnector', ['$http', function($http){
+  // Factory exists to pass objects from one controller to the next
+  // In order to access we need to call resultObject function passing in your queryResult as a parameter to your callback function
+
   var resultObject = function (queryResult, cb){
-    var passedObject = queryResult;
-    cb(passedObject)
+    cb(queryResult)
   };
+
+    /* example implementation:
+      SearchConnector.resultObject(testObject, function(passedObject){
+           console.log(passedObject);
+        });
+  */
 
   return {
     resultObject: resultObject
