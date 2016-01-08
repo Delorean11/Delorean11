@@ -4,8 +4,8 @@
   "description": "Stay informed, see how your elected officials are using thier post",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "postinstall": "bash ./post_install.sh"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",
+    "bower": "^1.7.2",
     "express": "^4.13.3",
     "express-partials": "^0.3.0",
     "grunt": "^0.4.5",
