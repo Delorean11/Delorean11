@@ -1,4 +1,11 @@
-angular.module('CongressionalStalker', ['Search', 'Results', 'ui.router'])
+angular.module('CongressionalStalker', [
+  'Search', 
+  'Results', 
+  'ui.router',
+  'Register',
+  'Login',
+  'Logout'
+  ])
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
   function($stateProvider, $urlRouterProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
@@ -13,7 +20,27 @@ angular.module('CongressionalStalker', ['Search', 'Results', 'ui.router'])
       url:'/results',
       templateUrl: 'components/results/resultsView.html',
       controller: 'ResultsController'
-    });
+    })
+    .state('auth', {
+      url: '/api/auth',
+      templateUrl: 'auth/login.html',
+      controller: 'LoginController'
+   })
+    .state('login', {
+      url: '/api/login',
+      templateUrl: 'auth/login.html',
+      controller: 'LoginController'
+   })
+    .state('register', {
+      url: '/api/register',
+      templateUrl: 'auth/register.html',
+      controller: 'RegisterController'
+   })
+    .state('logout', {
+      url: '/api/logout',
+      templateUrl: 'auth/logout.html',
+      controller: 'LogoutController'
+   })
 
 }])
 .factory('SearchConnector', ['$http', function($http){
