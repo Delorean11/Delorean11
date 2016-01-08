@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html ng-app="CongressionalStalker">
+<html>
 <head>
   <title>Discover how your Politicians have Voted!</title>
-  <link rel="stylesheet" type="text/css" href="../bower_components/Materialize/bin/materialize.css">
+  <link rel="stylesheet" type="text/css" src="../bower_components/Materialize/bin/materialize.css" />
 
 </head>
-<body >
-  <div> HI I'm INDEX </div>
+<body ng-app="CongressionalStalker">
+  <div><a href='/#results'>HI I'm INDEX</a></div>
   <div ui-view></div>
-<script type="text/javascript" href="../bower_components/angular/angular.js"></script>
-<script type="text/javascript" href="../bower_components/Materialize/bin/materialize.js"></script>
-<script type="text/javascript" href="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script type="text/javascript" href="app.js"></script>
+
+  <div class="row">
+    <div class="col s12">This div is 12-columns wide</div>
+    <div  class="col s6">This div is 6-columns wide</div>
+    <div class="col s6">This div is 6-columns wide</div>
+    {{1+1}}
+  </div>
+
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript" src="../bower_components/Materialize/bin/materialize.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type='text/javascript' src='components/results/resultsCtrl.js'></script>
+<script type='text/javascript' src='components/search/searchCtrl.js'></script>
 
 </body>
 </html>
