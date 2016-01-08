@@ -25,6 +25,7 @@
     "express-partials": "^0.3.0",
     "passport" : "~0.1.17",         
     "passport-local" : "~0.1.6",
+    "bcrypt-nodejs" : "latest",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.7.0",
