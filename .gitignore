@@ -18,7 +18,7 @@ node_modules/
 db/
 #Holds bower installed files
 bower_components/
-
+server/secrets/
 # Floobits
 .floo
 .floobit
