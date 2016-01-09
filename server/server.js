@@ -2,7 +2,7 @@ var express = require('express');
 var routes = require('./routes/routes');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var keys = require('./secrets/keys.js');
+// var keys = require('./secrets/keys.js');
 var User = require('./models/userModel');
 var CongressPerson = require('./models/congressPersonModel');
 var seedConstructors = require('./models/seedConstructors');
@@ -18,14 +18,11 @@ app.use('/api', routes);
 console.log('Server now listening on port ' + port);
 
 //Connect to db
-mongoose.connect(keys.mongoLabURI);
+mongoose.connect("mongodb://delorean11:delorean11@ds039175.mongolab.com:39175/congressional-stalker");
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function() {
   console.log('congressionalStalker db opened');
-  // CongressPerson.remove({}, function(){});
-  // seedConstructors.seedSenate();
-  // seedConstructors.seedHouse();
 });
 
 
