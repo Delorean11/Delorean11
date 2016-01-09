@@ -2,12 +2,7 @@ var express = require('express');
 var routes = require('./routes/routes');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-<<<<<<< 6afbf610c0fb5a3df64738e1414cf5f1c13eb434
-// var keys = require('./secrets/keys.js');
-=======
 
-
->>>>>>> Integrating Passport.js and frontEnd Authentication
 var User = require('./models/userModel');
 var CongressPerson = require('./models/congressPersonModel');
 var seedConstructors = require('./models/seedConstructors');
@@ -57,8 +52,7 @@ app.listen(port);
 
 
 
-console.log('Server now listening on port ' + port);
-app.use('/api', routes);
+
 //Connect to db
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/congressionalStalker'); //Test local db
 //mongoose.connect("mongodb://delorean11:delorean11@ds039175.mongolab.com:39175/congressional-stalker");
@@ -84,19 +78,6 @@ db.once('open', function() {
   console.log('congressionalStalker db opened');
 });
 
-<<<<<<< 6afbf610c0fb5a3df64738e1414cf5f1c13eb434
-<<<<<<< 5102def2c970efc6ce4da7e1dffb0234d01c8409
-=======
-//require('/routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-// For authentication page go to localhost:****/api/auth
-// Angular routes are localhost:****/#/auth
-app.use('/api', routes);
-console.log('Server now listening on port ' + port);
-
-=======
->>>>>>> Integrating Passport.js and frontEnd Authentication
-
->>>>>>> Sets up infrastructure to connect sessions. Login.js recieves response from server.
 module.exports = app;
 

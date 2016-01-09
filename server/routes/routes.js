@@ -4,6 +4,7 @@ var CongressPerson = require('../models/congressPersonModel');
 
 var router = express.Router();
 var passport = require('passport');
+var User = require('../models/userModel');
 
 
 router.get('/auth', function(req, res){
@@ -41,9 +42,37 @@ router.get('/login', function(req,res){
 router.post('/login',
   passport.authenticate('local'),
   function(req,res) {
+<<<<<<< 81d422bb60dea8b7761ca6198e67bf1549cdd382
     res.redirect('/users/' + req.user.username);
   });
 >>>>>>> Integrating Passport.js and frontEnd Authentication
+=======
+    res.redirect('/users/' + req.user.email);
+  }
+);
+
+router.post('/register',
+  //send post data to database
+  //save username and password to database
+  function(req,res) {
+    User.findOne({email: req.body.email}, function(err, user) {
+      if (err) console.log(err);
+      if (!user) {
+        User.create({password: req.body.password, email: req.body.email}, function(err, user){
+          if (err) console.log(err);
+          //redirect to loggedin version of search page
+          res.send('You signed up successfully.');
+          //this is where we would put favorite politicians
+        });
+      } else {
+        res.send('This account already exists');
+      }
+    });
+  }
+
+);
+
+>>>>>>> Finishes the SignUp through Mongoose needs to make Passport work correctly
 
 
 /*
