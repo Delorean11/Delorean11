@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "nodemon server/server.js",
-    "postinstall": "bash ./post_install.sh"
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.4.1",
     "grunt-shell": "^1.1.2",
+    "http": "0.0.0",
     "kerberos": "0.0.17",
     "mongoose": "^4.3.4",
     "morgan": "^1.6.1"
