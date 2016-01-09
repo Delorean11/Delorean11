@@ -60,33 +60,35 @@ angular.module('Search', [])
     }
   };
 
-  $scope.getMembersFromDb = function() {
-
-  }
-
-  $scope.checkMemberInDb = function() {
-    //check for any item in the db. eg memberId.
+  $scope.getAllMembersFromDb = function() {
     $http({
       method: 'GET',
-      url: 'api/members'
+      url: 'api/allMembers'
     })
     .success(function(data) {
-      consol.log('data exists. no need to save. Retrieving..');
+      console.log('data exists. Retrieving.. ' + data);
     })
     .error(function(err) {
-      console.log('member does not exist. Saving..');
-      $scope.saveMembersInDb();
+      console.log('members do not exist');
     })
-
   }
 
-  $scope.saveMembersInDb = function() {
-    //Save 450 members in db only once.
-    //check to see if any member exists,
-    //if yes, no need to save in db
-    //if no, save in db
-
+  $scope.getOneMemberFromDb = function(name) {
+    //db expects name to be uppercase
+    name = angular.uppercase(name.charAt(0)) + name.slice(1)
+    $http({
+      method: 'GET',
+      url: 'api/getOneMember/'+name
+    })
+    .success(function(data) {
+      console.log(data);
+      $rootScope.memberInfo = data
+      $state.go('results');
+    })
+    .error(function(err) {
+      console.log(err);
+    })
   }
 
-  $scope.getAllMembers();
+  //$scope.getAllMembers();
 }]);

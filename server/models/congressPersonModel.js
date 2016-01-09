@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var congressPersonSchema = new Schema({
   name: String,
-  id: String,
+  id: {type: String, unique: true},
   state: String,
   district: String,
   website: String,
