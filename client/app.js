@@ -5,9 +5,12 @@ angular.module('CongressionalStalker', [
   'Register',
   'Login',
   'Logout'
-  ])
-
-
+])
+.controller('AuthCheck', function($scope){
+  $scope.loginCheck = function(){
+    return localStorage.getItem('loginKey') !== undefined;
+  };
+})
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
   function($stateProvider, $urlRouterProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');

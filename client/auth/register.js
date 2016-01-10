@@ -7,8 +7,8 @@ angular.module('Register', [])
       url: '/api/register',
       data: user
     }).success(function(data){
-      console.log(data);
+      localStorage.setItem('loginKey', data);
+      window.location.href = '/';
     });
   };
-  //newHttpRequest();
 }]);
