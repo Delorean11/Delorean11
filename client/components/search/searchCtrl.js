@@ -60,5 +60,35 @@ angular.module('Search', [])
     }
   };
 
-  $scope.getAllMembers();
+  $scope.getAllMembersFromDb = function() {
+    $http({
+      method: 'GET',
+      url: 'api/allMembers'
+    })
+    .success(function(data) {
+      console.log('data exists. Retrieving.. ' + data);
+    })
+    .error(function(err) {
+      console.log('members do not exist');
+    })
+  }
+
+  $scope.getOneMemberFromDb = function(name) {
+    //db expects name to be uppercase
+    name = angular.uppercase(name.charAt(0)) + name.slice(1)
+    $http({
+      method: 'GET',
+      url: 'api/getOneMember/'+name
+    })
+    .success(function(data) {
+      console.log(data);
+      $rootScope.memberInfo = data
+      $state.go('results');
+    })
+    .error(function(err) {
+      console.log(err);
+    })
+  }
+
+  //$scope.getAllMembers();
 }]);

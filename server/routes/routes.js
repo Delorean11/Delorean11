@@ -15,7 +15,8 @@ router.get('/allMembers', function(req, res){
 });
 
 router.get('/getOneMember/:name', function(req, res){
-  CongressPerson.findOne({name: req.params.name}, function(err, person){
+  console.log(req.params)
+  CongressPerson.findOne({last_name: req.params.name}, function(err, person){
     res.send(person);
   });
 });
