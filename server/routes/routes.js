@@ -11,9 +11,6 @@ router.get('/auth', function(req, res){
   res.send('You reached the AUTH route!');
 });
 
-<<<<<<< 6afbf610c0fb5a3df64738e1414cf5f1c13eb434
-<<<<<<< 5102def2c970efc6ce4da7e1dffb0234d01c8409
-<<<<<<< da6b65da15399aedeebcb807f01d2fbfe066f0dd
 router.get('/allMembers', function(req, res){
   CongressPerson.find({}, function(err, people){
     res.send(people);
@@ -31,22 +28,15 @@ router.get('/byState/:state', function(req, res){
   CongressPerson.find({state: req.params.state}, function(err, people){
     res.send(people);
   });
-=======
+
 router.get('/login', function(req,res){
   console.log(passport);
->>>>>>> In middle of making server.js connect to passport
+
 });
-=======
->>>>>>> Sets up infrastructure to connect sessions. Login.js recieves response from server.
-=======
+
 router.post('/login',
   passport.authenticate('local'),
   function(req,res) {
-<<<<<<< 81d422bb60dea8b7761ca6198e67bf1549cdd382
-    res.redirect('/users/' + req.user.username);
-  });
->>>>>>> Integrating Passport.js and frontEnd Authentication
-=======
     res.redirect('/users/' + req.user.email);
   }
 );
@@ -71,8 +61,6 @@ router.post('/register',
   }
 
 );
-
->>>>>>> Finishes the SignUp through Mongoose needs to make Passport work correctly
 
 
 /*
