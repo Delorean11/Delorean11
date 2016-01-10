@@ -38,8 +38,7 @@ router.get('/byState/:state', function(req, res) {
 router.post('/login',
   passport.authenticate('local'),
   function(req,res) {
-    res.redirect('/users/' + req.user.email);
-    // res.send('hi from the auth route');
+    res.send(req.user._id);
   }
 );
 
@@ -53,7 +52,7 @@ router.post('/register',
         User.create({password: req.body.password, email: req.body.email}, function(err, user){
           if (err) console.log(err);
           //redirect to loggedin version of search page
-          res.send('You signed up successfully.');
+          res.send(user._id);
           //this is where we would put favorite politicians
         });
       } else {
