@@ -6,7 +6,6 @@ var router = express.Router();
 var passport = require('passport');
 var User = require('../models/userModel');
 
-
 router.get('/auth', function(req, res){
   res.send('You reached the AUTH route!');
 });
@@ -18,26 +17,29 @@ router.get('/allMembers', function(req, res){
 });
 
 router.get('/getOneMember/:name', function(req, res){
-  console.log(req.params)
+  console.log(req.params);
   CongressPerson.findOne({last_name: req.params.name}, function(err, person){
     res.send(person);
   });
 });
 
-router.get('/byState/:state', function(req, res){
+router.get('/byState/:state', function(req, res) {
   CongressPerson.find({state: req.params.state}, function(err, people){
     res.send(people);
   });
-
-router.get('/login', function(req,res){
-  console.log(passport);
-
 });
+
+/*router.get('/login', function(req,res){
+  console.log(res);
+  console.log(req);
+});*/
 
 router.post('/login',
   passport.authenticate('local'),
   function(req,res) {
-    res.redirect('/users/' + req.user.email);
+    res.send('hi from the auth route');
+    // When we create a users/ req.user.email field
+    // res.redirect('/users/' + req.user.email);
   }
 );
 
@@ -59,19 +61,19 @@ router.post('/register',
       }
     });
   }
-
 );
 
-
 /*
-function isLoggedIn(req, res, next) {
+function isLoggedIn(req, res,
+next) {
 
     // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
-        return next();
+        return nex
+();
 
     // if they aren't redirect them to the home page
-    res.redirect('/');
+    res.redirect(');
 }
 */
 module.exports = router;

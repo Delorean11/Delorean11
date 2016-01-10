@@ -1,5 +1,4 @@
 var express = require('express');
-var routes = require('./routes/routes');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 
@@ -12,14 +11,14 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-//
+
+var routes = require('./routes/routes');
 
 
 var app = express();
 var port = process.env.PORT || 4556;
 app.use(express.static(__dirname + '/../client'));
 
-require('./auth/passport.js')(passport); //pass passport for configuration
 
 
 app.use(morgan('dev'));
@@ -30,6 +29,9 @@ app.use(bodyParser()); // get information from html forms
 app.use(session({ secret: 'nyan cat' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
+require('./auth/passport.js')(passport); //pass passport for configuration
+
 //app.use(flash()); // use connect-flash for flash messages stored in session
 
 // app.configure(function() {
@@ -76,7 +78,7 @@ db.once('open', function() {
     }
   });*/
   console.log('congressionalStalker db opened');
-});
+})
 
 
 module.exports = app;

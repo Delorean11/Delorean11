@@ -16,6 +16,7 @@ module.exports = function(passport) {
     // passport needs ability to serialize and unserialize users out of session
 
     // used to serialize the user for the session
+
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
@@ -27,16 +28,20 @@ module.exports = function(passport) {
         });
     });
 
-    passport.use(new LocalStrategy(
+    passport.use(new LocalStrategy({
+      usernameField: 'email',
+      passwordField: 'password'
+    },
       function(username, password, done) {
+
         User.findOne({ email: username }, function(err, user) {
-          if (err) { return done(err); }
+          if (err) { return done(null, err); }
           if (!user) {
             return done(null, false, { message: 'Incorrect username.' });
           }
-          if (!user.validPassword(password)) {
-            return done(null, false, { message: 'Incorrect password.' });
-          }
+          // if (!user.validPassword(password)) {
+          //   return done(null, false, { message: 'Incorrect password.' });
+          // }
           return done(null, user);
         });
       }
