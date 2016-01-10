@@ -13,11 +13,12 @@ var congressPersonSchema = new Schema({
   twitter: String,
   totalVotes: Number,
   missedVotes: Number,
-  missedVotesPerc: Number, 
+  missedVotesPerc: Number,
   votesWithParty: Number,
   chamber: String,
   seniority: Number
 });
+
 
 var CongressPerson = mongoose.model('CongressPerson', congressPersonSchema);
 module.exports = CongressPerson;

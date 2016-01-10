@@ -37,9 +37,8 @@ router.get('/byState/:state', function(req, res) {
 router.post('/login',
   passport.authenticate('local'),
   function(req,res) {
-    res.send('hi from the auth route');
-    // When we create a users/ req.user.email field
-    // res.redirect('/users/' + req.user.email);
+    res.redirect('/users/' + req.user.email);
+    // res.send('hi from the auth route');
   }
 );
 
