@@ -7,7 +7,7 @@ angular.module('Directives', [])
         var congressNumber = '113';
         var house = 'house';
         var api_key = 'dab50f4c71783810c9a7c1f132ef3136:5:73959417';
-        var getAPIVotes = function(id) {
+        $rootScope.getAPIVotes = function(id) {
           var url = '//api.nytimes.com/svc/politics/v3/us/legislative/congress/members/' + id + '/votes.json?api-key=' + api_key;
           SendRequest.getRequest(url)
           .success(function(data) {
@@ -17,18 +17,18 @@ angular.module('Directives', [])
           });
         };
 
-        $scope.getMemberAndVotes = function(name) {
+        $rootScope.getMemberAndVotes = function(name) {
           var url = 'api/getOneMember/'+name;
           SendRequest.getRequest(url)
           .success(function(data) {
             console.log(data);
-            $rootScope.memberInfo = data
-            getAPIVotes(data.id);
+            $rootScope.memberInfo = data;
+            $rootScope.getAPIVotes(data.id);
           })
           .error(function(err) {
             console.log(err);
           });
         };
       }
-    }
+    };
   }]);

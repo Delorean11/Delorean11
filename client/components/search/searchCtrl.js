@@ -27,20 +27,4 @@ angular.module('Search', [])
     });
   };
 
-/*  $scope.getMembersByState = function(state) {
-    var url = 'api/byState/'+state;
-    SendRequest.getRequest(url)
-    .success(function(data) {
-      console.log(data);
-      $rootScope.memberInfo = data;
-      //$state.go('results');
-      getAPIVotes(data.id);
-    })
-    .error(function(err) {
-      console.log(err);
-    });
-  };*/
-
->>>>>>> Implemented Search By State without styling
-
 }]);
