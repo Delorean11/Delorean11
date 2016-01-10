@@ -4,7 +4,8 @@ angular.module('CongressionalStalker', [
   'ui.router',
   'Register',
   'Login',
-  'Logout'
+  'Logout',
+  'HandleRequests'
 ])
 .controller('AuthCheck', function($scope){
   $scope.loginCheck = function(){
