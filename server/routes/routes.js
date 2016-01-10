@@ -18,7 +18,7 @@ router.get('/allMembers', function(req, res){
 
 router.get('/getOneMember/:name', function(req, res){
 
-  console.log(req.params)
+  console.log(req.params);
   CongressPerson.findOne({name: req.params.name}, function(err, person){
     res.send(person);
   });
@@ -30,15 +30,16 @@ router.get('/byState/:state', function(req, res) {
   });
 });
 
-/*router.get('/login', function(req,res){
-  console.log(res);
-  console.log(req);
-});*/
-
 router.post('/login',
   passport.authenticate('local'),
   function(req,res) {
     res.send(req.user._id);
+  }
+);
+
+router.get('/logout', function(req,res) {
+    req.logout();
+    res.end();
   }
 );
 

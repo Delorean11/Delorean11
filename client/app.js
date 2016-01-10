@@ -1,6 +1,6 @@
 angular.module('CongressionalStalker', [
-  'Search', 
-  'Results', 
+  'Search',
+  'Results',
   'ui.router',
   'Register',
   'Login',
@@ -8,7 +8,7 @@ angular.module('CongressionalStalker', [
 ])
 .controller('AuthCheck', function($scope){
   $scope.loginCheck = function(){
-    return localStorage.getItem('loginKey') !== undefined;
+    return localStorage.getItem('loginKey') !== null;
   };
 })
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
@@ -45,14 +45,14 @@ angular.module('CongressionalStalker', [
       url: '/api/logout',
       templateUrl: 'auth/logout.html',
       controller: 'LogoutController'
-   })
+   });
 }])
 .factory('SearchConnector', ['$http', function($http){
   // Factory exists to pass objects from one controller to the next
   // In order to access we need to call resultObject function passing in your queryResult as a parameter to your callback function
 
   var resultObject = function (queryResult, cb){
-    cb(queryResult)
+    cb(queryResult);
   };
 
     /* example implementation:
@@ -63,6 +63,6 @@ angular.module('CongressionalStalker', [
 
   return {
     resultObject: resultObject
-  }
+  };
 
 }]);
