@@ -1,14 +1,22 @@
-angular.module('ByState', [])
-.controller('ByStateController', ['$http', '$scope', function($http, $scope) {
-  $scope.search = function(state) {
-    $http({
-      method:'POST',
-      url: '/api/byState',
-      data: state
-    }).success(function(data) {
-      console.log('going to state search view');
+angular.module('ByState', ['HandleRequests'])
+.controller('ByStateController', ['$http', '$scope', '$rootScope', 'SendRequest', '$state', function($http, $scope, $rootScope, SendRequest, $state) {
+
+
+
+  $scope.getMembersByState = function(state) {
+    var url = 'api/byState/'+ state;
+    $rootScope.state = state;
+    SendRequest.getRequest(url)
+    .success(function(data) {
+      $rootScope.byStateResults = data;
+      console.log($rootScope.byStateResults);
+      $state.go('byStateResults');
+    })
+    .error(function(err) {
+      console.log(err);
     });
   };
+
   $scope.states = ['AL','AK','AZ','AR','CA','CO','CT',
                    'DE','FL','GA','HI','ID','IL','IN',
                    'IA','KS','KY','LA','ME','MD','MA',

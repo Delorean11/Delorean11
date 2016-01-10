@@ -6,7 +6,7 @@
     </a>
 
     <!-- Dropdown Structure -->
-    <select id='demoDropdown' class='dropdown-content' ng-model='states[0]' ng-options='state as state for state in states'>
+    <select id='demoDropdown' class='dropdown-content' ng-model='state' ng-change='getMembersByState(state)' ng-options='state as state for state in states'>
     </select>
   </div>
 </div>

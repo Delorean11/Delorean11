@@ -2,13 +2,14 @@ angular.module('CongressionalStalker', [
   'Search',
   'Results',
   'ui.router',
+  'ui.materialize',
   'Register',
   'Login',
   'Logout',
   'HandleRequests',
   'Directives',
   'ByState',
-  'ui.materialize'
+  'ByStateResults'
 ])
 .controller('AuthCheck', function($scope){
   $scope.loginCheck = function(){
@@ -54,6 +55,11 @@ angular.module('CongressionalStalker', [
       url:'/api/byState',
       templateUrl: 'components/search/byState.html',
       controller: 'ByStateController'
+    })
+    .state('byStateResults', {
+      url:'/api/byState/results',
+      templateUrl: 'components/results/byStateResults.html',
+      controller: 'ByStateResultsController'
     });
 }])
 .factory('SearchConnector', ['$http', function($http){
