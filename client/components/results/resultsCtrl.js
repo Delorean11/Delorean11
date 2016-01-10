@@ -5,5 +5,5 @@ angular.module('Results', [])
     SearchConnector.resultObject(testObject, function(passedObject){
       console.log(passedObject);
     });
-  }
+  };
 }]);

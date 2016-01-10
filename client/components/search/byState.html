@@ -1,0 +1,12 @@
+<div class='row'>
+  <div class='col s6 offset-s3 drop'>
+    <!-- Dropdown Trigger -->
+    <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' data-beloworigin='true' dropdown data-hover='true'>
+        Find congress members by state
+    </a>
+
+    <!-- Dropdown Structure -->
+    <select id='demoDropdown' class='dropdown-content' ng-model='state' ng-change='getMembersByState(state)' ng-options='state as state for state in states'>
+    </select>
+  </div>
+</div>

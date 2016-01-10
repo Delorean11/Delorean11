@@ -32,20 +32,6 @@ app.use(passport.session()); // persistent login sessions
 
 require('./auth/passport.js')(passport); //pass passport for configuration
 
-//app.use(flash()); // use connect-flash for flash messages stored in session
-
-// app.configure(function() {
-  // app.use(express.static('public'));
-  // app.use(express.cookieParser());
-  // app.use(express.bodyParser());
-  // app.use(express.session({ secret: 'keyboard cat' }));
-  // app.use(passport.initialize());
-  // app.use(passport.session());
-//   app.use(app.router);
-// });
-
-//require('/routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-
 // For authentication page go to localhost:****/api/auth
 // Angular routes are localhost:****/#/auth
 app.use('/api', routes);
@@ -62,11 +48,11 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function() {
 
-  /*seedConstructors.seedHouse();
+/*  seedConstructors.seedHouse();
   seedConstructors.seedSenate();*/
 
-  console.log('congressionalStalker db opened');
-})
+console.log('congressionalStalker db opened');
+});
 
 
 module.exports = app;

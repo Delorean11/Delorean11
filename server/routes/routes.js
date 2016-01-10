@@ -24,8 +24,17 @@ router.get('/getOneMember/:name', function(req, res){
   });
 });
 
-router.get('/byState/:state', function(req, res) {
+/*router.get('/byState/:state', function(req, res) {
   CongressPerson.find({state: req.params.state}, function(err, people){
+    res.send(people);
+  });
+});*/
+
+router.get('/byState/:state', function(req, res) {
+  console.log(req.params.state);
+  CongressPerson.find({state: req.params.state}, function(err, people){
+    if (err) console.log(err);
+    console.log(people);
     res.send(people);
   });
 });
