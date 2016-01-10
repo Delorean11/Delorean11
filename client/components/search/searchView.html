@@ -7,9 +7,10 @@
 </div>
 <div class='container'>
   <div class='row'>
-    <!-- <form name='search' class='col s12' novalidate ng-submit='searchById(congressPerson)'> -->
-    <form name='search' class='col s12' novalidate ng-submit='getOneMemberFromDb(congressPerson)'>
+    <!-- <form name='search' class='col s12' novalidate ng-submit='getMembersByState(state)'> -->
+    <form name='search' class='col s12' novalidate ng-submit='getMemberAndVotes(congressPerson)'>
       <input class='col s9 z-depth-3 hoverable' type='text' placeholder="Who's you're congress person?" name='person' ng-model='congressPerson' ng-pattern='/[A-Z a-z]/' required>
+      <!-- <input class='col s9 z-depth-3 hoverable' type='text' placeholder="Who's you're congress person?" name='person' ng-model='state' ng-pattern='/[A-Z a-z]/' required> -->
       <button class='center-align col s2 btn waves-effect waves-light'type='submit'>Search<i class="material-icons right">send</i></button>
       <p ng-if='search.person.$invalid && search.person.$dirty'>Not a valid name</p>
     </form>
