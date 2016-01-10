@@ -1,12 +1,13 @@
 angular.module('Login', [])
-.controller('LoginController', ['$http', function($http){
-  var newHttpRequest = function(){
+.controller('LoginController', ['$http', '$scope', function($http, $scope){
+  $scope.user = {};
+  $scope.login = function(user){
     $http({
-      method: 'GET',
-      url: '/api/login' //Server should have /api/login path defined
+      method: 'POST',
+      url: '/api/login', //Server should have /api/login path defined
+      data: user
     }).success(function(data){
       console.log(data);
     });
-  }
-  newHttpRequest();
-}])
+  };
+}]);

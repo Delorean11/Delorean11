@@ -1,12 +1,14 @@
 angular.module('Register', [])
-.controller('RegisterController', ['$http', function($http){
-  var newHttpRequest = function(){
+.controller('RegisterController', ['$http', '$scope', function($http, $scope){
+  $scope.user = {};
+  $scope.register = function(user){
     $http({
-      method: 'GET',
-      url: '/api/register'
+      method: 'POST',
+      url: '/api/register',
+      data: user
     }).success(function(data){
       console.log(data);
     });
-  }
-  newHttpRequest();
-}])
+  };
+  //newHttpRequest();
+}]);
