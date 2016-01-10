@@ -6,7 +6,9 @@ angular.module('CongressionalStalker', [
   'Login',
   'Logout',
   'HandleRequests',
-  'Directives'
+  'Directives',
+  'ByState',
+  'ui.materialize'
 ])
 .controller('AuthCheck', function($scope){
   $scope.loginCheck = function(){
@@ -32,22 +34,27 @@ angular.module('CongressionalStalker', [
       url: '/api/auth',
       templateUrl: 'auth/login.html',
       controller: 'LoginController'
-   })
+    })
     .state('login', {
       url: '/api/login',
       templateUrl: 'auth/login.html',
       controller: 'LoginController'
-   })
+    })
     .state('register', {
       url: '/api/register',
       templateUrl: 'auth/register.html',
       controller: 'RegisterController'
-   })
+    })
     .state('logout', {
       url: '/api/logout',
       templateUrl: 'auth/logout.html',
       controller: 'LogoutController'
-   });
+    })
+    .state('byState', {
+      url:'/api/byState',
+      templateUrl: 'components/search/byState.html',
+      controller: 'ByStateController'
+    });
 }])
 .factory('SearchConnector', ['$http', function($http){
   // Factory exists to pass objects from one controller to the next

@@ -1,3 +1,7 @@
-.center-form{
-  float:none;
+.center-form {
+  float: none;
+}
+
+.drop {
+  margin: 5% auto;
 }
