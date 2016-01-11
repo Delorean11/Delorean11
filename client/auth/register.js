@@ -8,7 +8,7 @@ angular.module('Register', [])
       data: user
     }).success(function(data){
       localStorage.setItem('loginKey', data._id);
-      localStorage.setItem('searchCache', data.searchCache);
+      localStorage.setItem('searchCache', JSON.stringify(data.searchCache));
       console.log(data.searchCache);
       window.location.href = '/';
     });

@@ -20,7 +20,7 @@ angular.module('Search', [])
     .success(function(data) {
       $rootScope.memberInfo = data;
       if(localStorage.getItem('loginKey')){
-        updateSearchCache({id: localStorage.getItem('loginKey'), search: {name: name, id: data.id}});
+        updateSearchCache({_id: localStorage.getItem('loginKey'), search: {name: name, id: data.id}});
       }
       getAPIVotes(data.id);
     });
@@ -61,16 +61,7 @@ angular.module('Search', [])
     SendRequest.postRequest('/api/user/cacheSearch', info)
       .success(function(data){
         console.log(data, ' in update search cache after request');
-        localStorage.setItem('searchCache', data);
+        localStorage.setItem('searchCache', JSON.stringify(data));
       });
-    // $http({
-    //   method: 'POST',
-    //   url: 'api/user/cacheSearch',
-    //   data: info
-    // })
-    // .success(function(data){
-    //   console.log(data, ' in update search cache after request');
-    //   localStorage.setItem('searchCache', data);
-    // })
   };
 }]);

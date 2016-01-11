@@ -88,28 +88,21 @@ router.post('/register',
 
 
 router.post('/user/cacheSearch', function(req, res){
-  User.update({_id: parseInt(req.body.id)}, function(err, user){
+  User.findOne({_id: req.body._id}, function(err, user){
     var currCache = user.searchCache;
-    console.log(currCache, ' currCache in /user/cacheSearch');
-    console.log(user.email, ' user in /user/cacheSearch')
     var duplicate = false;
-    if(currCache){
-      for(var i = 0; i < currCache.length; i++){
-        if(currCache[i].id === req.body.search.id) duplicate = true;
-      }
-      if(!duplicate){
-        currCache = [req.body.search].concat(currCache);
-        if(currCache.length > 10){
-          currCache.pop();
-        }
-        user.searchCache = currCache;
-        user.save();
-      }
-    }else{
-      user.searchCache = [req.body.search];
-      user.save();
-      currCache = req.body.search;
+    for(var i = 0; i < currCache.length; i++){
+      if(currCache[i].id === req.body.search.id) duplicate = true;
     }
+    if(!duplicate){
+      currCache = [req.body.search].concat(currCache);
+      if(currCache.length > 10){
+        currCache.pop();
+      }
+      user.searchCache = currCache;
+      user.save();
+    }
+    console.log(currCache, ' the currCache');
     res.send(currCache);
   });
 })
