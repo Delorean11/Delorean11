@@ -56,7 +56,7 @@ router.get('/byState/:state', function(req, res) {
 router.post('/login',
   passport.authenticate('local'),
   function(req,res) {
-    res.send({_id: user._id, searchCache: user.searchCache});
+    res.send({_id: req.user._id, searchCache: req.user.searchCache});
   }
 );
 
@@ -91,6 +91,7 @@ router.post('/user/cacheSearch', function(req, res){
   User.findOne({_id: req.body._id}, function(err, user){
     var currCache = user.searchCache;
     var duplicate = false;
+    console.log(req.body.search);
     for(var i = 0; i < currCache.length; i++){
       if(currCache[i].id === req.body.search.id) duplicate = true;
     }
