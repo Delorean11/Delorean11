@@ -75,3 +75,16 @@ a > img{
   width: 40px;
 }
 
+.lighter-blue {
+  background-color: #678CE5;
+  color: white;
+}
+
+.card-panel {
+  margin: 0 0 -20px 0;
+}
+
+.table-pages {
+  left: 50%;
+}
+
