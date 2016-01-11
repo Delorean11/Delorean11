@@ -23,6 +23,9 @@ angular.module('Directives', [])
           .success(function(data) {
             console.log(data);
             $rootScope.memberInfo = data;
+            $rootScope.memberImageUrl = "https://theunitedstates.io/images/congress/225x275/" + data.id + ".jpg";
+            $rootScope.memberFacebookUrl = "http://www.facebook.com/" + data.facebook;
+            $rootScope.memberTwitterUrl = "http://www.twitter.com/" + data.twitter;
             $rootScope.getAPIVotes(data.id);
           })
           .error(function(err) {

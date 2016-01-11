@@ -34,3 +34,7 @@
   left: 35%;
   top: 44%;
 }
+
+a>img{
+  width: 40px;
+}
