@@ -4,7 +4,7 @@
       <h2>{{state}}</h2>
       <table class="bordered">
         <tr ng-repeat="result in byStateResults">
-          <td class="table-items-medium" ng-click="getVotes(result.name)">{{result.name}}</td>
+          <td class="table-items-medium" ng-click="getVotes(result.name)">{{result.name | capitalize}}</td>
       </table>
     </div>
   </div>

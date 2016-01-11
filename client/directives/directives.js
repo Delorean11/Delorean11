@@ -22,11 +22,13 @@ angular.module('Directives', [])
           SendRequest.getRequest(url)
           .success(function(data) {
             console.log(data);
-            $rootScope.memberInfo = data;
-            $rootScope.memberImageUrl = "https://theunitedstates.io/images/congress/225x275/" + data.id + ".jpg";
-            $rootScope.memberFacebookUrl = "http://www.facebook.com/" + data.facebook;
-            $rootScope.memberTwitterUrl = "http://www.twitter.com/" + data.twitter;
-            $rootScope.getAPIVotes(data.id);
+            $rootScope.memberInfo = data.member;
+            $rootScope.memberBio = data.memberBio[0].split(';');
+            console.log($rootScope.memberBio);
+            $rootScope.memberImageUrl = "https://theunitedstates.io/images/congress/225x275/" + data.member.id + ".jpg";
+            $rootScope.memberFacebookUrl = "http://www.facebook.com/" + data.member.facebook;
+            $rootScope.memberTwitterUrl = "http://www.twitter.com/" + data.member.twitter;
+            $rootScope.getAPIVotes(data.member.id);
           })
           .error(function(err) {
             console.log(err);

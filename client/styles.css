@@ -25,7 +25,7 @@
     width: 200px;
     height: 200px;
     float: right;
-    margin: -220px 140px;
+    margin: 20px 140px;
 }
 
 #voteProgress>p{
@@ -38,3 +38,4 @@
 a>img{
   width: 40px;
 }
+
