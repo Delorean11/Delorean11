@@ -2,7 +2,7 @@ angular.module('CongressionalStalker', [
   'Search',
   'Results',
   'ui.router',
-  'ui.materialize',
+  // 'ui.materialize',
   'Register',
   'Login',
   'Logout',

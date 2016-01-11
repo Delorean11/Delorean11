@@ -29,9 +29,10 @@
     <a ng-if="memberInfo.facebook" href="{{memberFacebookUrl}}" target="_blank"><img src="/icons/icon_facebook.png" alt="facebook"></a>
     <a ng-if="memberInfo.twitter" href="{{memberTwitterUrl}}" target="_blank"><img src="/icons/icon_twitter.png" alt="twitter"></a>
   </div>
-
+  <input ng-model='search' placeholder='search by bill!'></input>
+  <button ng-click='increment()' > Click Me For More!</button>
   <table>
-    <tr ng-repeat="vote in currentMember.votes | limitTo:20">
+    <tr ng-repeat="vote in currentMember.votes | limitTo: limit | filter:search">
       <td ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">{{vote.bill.title}} <br>{{vote.question}}</td>
     </tr>
   </table>
