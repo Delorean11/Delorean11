@@ -9,7 +9,8 @@ angular.module('CongressionalStalker', [
   'HandleRequests',
   'Directives',
   'ByState',
-  'ByStateResults'
+  'ByStateResults',
+  'DlFilters'
 ])
 .controller('AuthCheck', function($scope){
   $scope.loginCheck = function(){

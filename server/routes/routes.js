@@ -1,6 +1,7 @@
 var app = require('../server');
 var express = require('express');
 var CongressPerson = require('../models/congressPersonModel');
+var scraperjs = require('scraperjs');
 
 var router = express.Router();
 var passport = require('passport');
@@ -20,7 +21,22 @@ router.get('/getOneMember/:name', function(req, res){
 
   console.log(req.params);
   CongressPerson.findOne({name: req.params.name}, function(err, person){
-    res.send(person);
+    //Scrape the bio first
+    scraperjs.StaticScraper.create('http://bioguide.congress.gov/scripts/biodisplay.pl?index='+person.id)
+      .scrape(function($) {
+        return $("body").map(function() {
+          return $(this).text();
+        }).get();
+      })
+      .then(function(bio) {
+        console.log(bio);
+        res.send({member: person, memberBio: bio});
+      })
+      .catch(function() {
+        res.send({member: person});
+      })
+
+    
   });
 });
 
