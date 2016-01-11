@@ -29,7 +29,7 @@
     <a ng-if="memberInfo.facebook" href="{{memberFacebookUrl}}" target="_blank"><img src="/icons/icon_facebook.png" alt="facebook"></a>
     <a ng-if="memberInfo.twitter" href="{{memberTwitterUrl}}" target="_blank"><img src="/icons/icon_twitter.png" alt="twitter"></a>
   </div>
-
+  <input ng-model='search' placeholder='search by bill!'> </input>
   <table>
     <tr ng-repeat="vote in currentMember.votes | limitTo:20">
       <td ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">{{vote.bill.title}} <br>{{vote.question}}</td>

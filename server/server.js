@@ -32,9 +32,9 @@ app.use(passport.session()); // persistent login sessions
 
 require('./auth/passport.js')(passport); //pass passport for configuration
 
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
 
-  console.log('hello');
+  console.log('super hello');
 
     res.setHeader('Access-Control-Allow-Origin', process.env.PORT || 'http://localhost:' + 4556);
 
@@ -51,7 +51,7 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 
-});
+});*/
 
 //app.use(flash()); // use connect-flash for flash messages stored in session
 
@@ -84,8 +84,9 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function() {
 
-/*  seedConstructors.seedHouse();
-  seedConstructors.seedSenate();*/
+  seedConstructors.seedHouse();
+  seedConstructors.seedSenate();
+  
 
 console.log('congressionalStalker db opened');
 });
