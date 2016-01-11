@@ -17,11 +17,11 @@ angular.module('Results', [])
             color: 'coral',
             'font-size': 'x-large',
             left: '50%',
-            top: '47%'
+            top: '45%'
           }
       },
       step: function(state, bar) {
-          bar.setText((bar.value() * 100).toFixed(0));
+        bar.setText((bar.value() * 100).toFixed(0) + '%');
       }
   });
 

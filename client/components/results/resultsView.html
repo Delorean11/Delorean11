@@ -1,19 +1,28 @@
 <div>
-  <div class="container" id="bio-container">
+  <div class="container" id="member-container">
+    <div class="flex">
 
-    <div id="voteProgress">
-      <p>% Votes</p>
-    </div>
+      <img ng-src="{{memberImageUrl}}" alt="{{memberInfo.name}}">
 
-    <img id="bio-pic" ng-src="{{memberImageUrl}}" alt="{{memberInfo.name}}">
-    <div id="summary">
-      <h2>{{memberInfo.name | capitalize}}</h2>
-      <p><span class="subheader">State:</span> {{memberInfo.state}}</p>
-      <p><span class="subheader">District:</span> {{memberInfo.district}}</p>
-      <p><span class="subheader">Party:</span>
-        <span ng-if="memberInfo.party === 'D'">Democratic</span>
-        <span ng-if="memberInfo.party === 'R'">Republican</span>
-      </p>
+      <div id="summary">
+        <h2>{{memberInfo.name | capitalize}}</h2>
+        <p><span class="subheader">State:</span> {{memberInfo.state}}</p>
+        <!-- <p><span class="subheader">District:</span> {{memberInfo.district}}</p> -->
+        <p><span class="subheader">Chamber: </span>{{memberInfo.chamber | capitalize}}</p>
+        <p><span class="subheader">Party:</span>
+          <span ng-if="memberInfo.party === 'D'">Democratic</span>
+          <span ng-if="memberInfo.party === 'R'">Republican</span>
+        </p>
+        <div id="social">
+          <a ng-if="memberInfo.website" href="{{memberInfo.website}}" target="_blank"><img src="/icons/icon_web.png" alt="website"></a>
+          <a ng-if="memberInfo.facebook" href="{{memberFacebookUrl}}" target="_blank"><img src="/icons/icon_facebook.png" alt="facebook"></a>
+          <a ng-if="memberInfo.twitter" href="{{memberTwitterUrl}}" target="_blank"><img src="/icons/icon_twitter.png" alt="twitter"></a>
+        </div>
+      </div>
+
+      <div id="voteProgress">
+        <p>votes for which member was present</p>
+      </div>
     </div>
 
     <div id="bio">
@@ -26,11 +35,7 @@
       </ul>
     </div>
 
-    <div id="social">
-      <a ng-if="memberInfo.website" href="{{memberInfo.website}}" target="_blank"><img src="/icons/icon_web.png" alt="website"></a>
-      <a ng-if="memberInfo.facebook" href="{{memberFacebookUrl}}" target="_blank"><img src="/icons/icon_facebook.png" alt="facebook"></a>
-      <a ng-if="memberInfo.twitter" href="{{memberTwitterUrl}}" target="_blank"><img src="/icons/icon_twitter.png" alt="twitter"></a>
-    </div>
+
   </div>
 
   <input ng-model='search' placeholder='search by bill!'></input>
