@@ -86,7 +86,6 @@ db.once('open', function() {
 
   // seedConstructors.seedHouse();
   // seedConstructors.seedSenate();
-  
 
 console.log('congressionalStalker db opened');
 });

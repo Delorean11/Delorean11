@@ -18,8 +18,6 @@ router.get('/allMembers', function(req, res){
 });
 
 router.get('/getOneMember/:name', function(req, res){
-
-  console.log(req.params);
   CongressPerson.findOne({name: req.params.name}, function(err, person){
     //Scrape the bio first
     scraperjs.StaticScraper.create('http://bioguide.congress.gov/scripts/biodisplay.pl?index='+person.id)
@@ -58,7 +56,7 @@ router.get('/byState/:state', function(req, res) {
 router.post('/login',
   passport.authenticate('local'),
   function(req,res) {
-    res.send(req.user._id);
+    res.send({_id: user._id, searchCache: user.searchCache});
   }
 );
 
@@ -75,10 +73,10 @@ router.post('/register',
     User.findOne({email: req.body.email}, function(err, user) {
       if (err) console.log(err);
       if (!user) {
-        User.create({password: req.body.password, email: req.body.email}, function(err, user){
+        User.create({password: req.body.password, email: req.body.email, searchCache: []}, function(err, user){
           if (err) console.log(err);
           //redirect to loggedin version of search page
-          res.send(user._id);
+          res.send({_id: user._id, searchCache: user.searchCache});
           //this is where we would put favorite politicians
         });
       } else {
@@ -88,6 +86,26 @@ router.post('/register',
   }
 );
 
+
+router.post('/user/cacheSearch', function(req, res){
+  User.findOne({_id: req.body._id}, function(err, user){
+    var currCache = user.searchCache;
+    var duplicate = false;
+    for(var i = 0; i < currCache.length; i++){
+      if(currCache[i].id === req.body.search.id) duplicate = true;
+    }
+    if(!duplicate){
+      currCache = [req.body.search].concat(currCache);
+      if(currCache.length > 10){
+        currCache.pop();
+      }
+      user.searchCache = currCache;
+      user.save();
+    }
+    console.log(currCache, ' the currCache');
+    res.send(currCache);
+  });
+})
 /*
 function isLoggedIn(req, res,
 next) {

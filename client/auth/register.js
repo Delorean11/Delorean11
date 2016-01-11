@@ -7,7 +7,9 @@ angular.module('Register', [])
       url: '/api/register',
       data: user
     }).success(function(data){
-      localStorage.setItem('loginKey', data);
+      localStorage.setItem('loginKey', data._id);
+      localStorage.setItem('searchCache', JSON.stringify(data.searchCache));
+      console.log(data.searchCache);
       window.location.href = '/';
     });
   };

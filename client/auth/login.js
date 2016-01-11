@@ -7,7 +7,9 @@ angular.module('Login', [])
       url: '/api/login', //Server should have /api/login path defined
       data: user
     }).success(function(data){
-      console.log(data);
+      localStorage.setItem('loginKey', data._id);
+      localStorage.setItem('searchCache', JSON.stringify(data.searchCache));
+      window.location.href = '/';
     });
   };
 }]);

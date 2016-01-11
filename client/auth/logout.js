@@ -6,6 +6,7 @@ angular.module('Logout', [])
       url: '/api/logout'
     }).success(function(data){
       localStorage.removeItem('loginKey');
+      localStorage.removeItem('searchCache');
       setTimeout(function() {
         $state.go('main');
       }, 3000);
