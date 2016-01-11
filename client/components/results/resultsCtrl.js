@@ -1,5 +1,9 @@
 angular.module('Results', [])
 .controller('ResultsController',['$scope', '$rootScope', function($scope, $rootScope){
+  $scope.limit = 20;
+  $scope.increment = function() {
+    $scope.limit+= 10;
+  }
   var nonMissedVotes = (100 - $rootScope.memberInfo.missedVotesPerc)/100;
   console.log(nonMissedVotes);
   var circle = new ProgressBar.Circle('#voteProgress', {
