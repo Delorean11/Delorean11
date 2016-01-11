@@ -37,12 +37,22 @@
 
 
   </div>
+  <div class='container'>
+    <input ng-model='search' placeholder='Search by bill!'></input>
+    <button ng-click='increment()' > Click Me For More!</button>
+    <div class="row"></div>
 
-  <input ng-model='search' placeholder='search by bill!'></input>
-  <button ng-click='increment()' > Click Me For More!</button>
-  <table>
-    <tr ng-repeat="vote in currentMember.votes | limitTo: limit | filter:search">
-      <td ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">{{vote.bill.title}} <br>{{vote.question}}</td>
-    </tr>
-  </table>
+    <table class='responsive-table bordered striped'>
+      <tr ng-repeat="vote in currentMember.votes | limitTo: limit | filter:search">
+        <td> {{vote.bill.title}} <br>{{vote.question}}</td>
+        <td ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">
+        <div class="container center-align vertical-align">
+          <i ng-if="vote.position === 'Yes' " class="material-icons center-align">check_circle</i>
+          <i ng-if="vote.position === 'No' " class="material-icons center-align">clear</i>
+        </div>
+        </td>
+        
+      </tr>
+    </table>
+  </div>
 </div>
