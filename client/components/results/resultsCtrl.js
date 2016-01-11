@@ -37,7 +37,6 @@ angular.module('Results', [])
     $scope.pages.max = page * 10;
     $scope.pages.min =  (page * 10) - 10 + 1
   }
-}]);
 }])
 .run(function($rootScope){
   var data = JSON.parse(localStorage.getItem('memberData')); 
@@ -48,5 +47,5 @@ angular.module('Results', [])
   $rootScope.memberTwitterUrl = "http://www.twitter.com/" + data.member.twitter;
   
   data = JSON.parse(localStorage.getItem('currMemberVotes'));
-  $rootScope.currentMember = data.votes;
+  $rootScope.currentMember = data;
 });
