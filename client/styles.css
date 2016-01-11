@@ -8,7 +8,9 @@
 
 .table-items-medium {
   font-size: 1.5em;
+  cursor: pointer;
 }
+
 
 .centered {
   display: table;
@@ -21,21 +23,50 @@
   left: 20px !important;
 }
 
-#voteProgress {
-    width: 200px;
-    height: 200px;
-    float: right;
-    margin: 20px 140px;
+.subheader {
+  font-weight: bold;
 }
 
-#voteProgress>p{
+.flex {
+  display: flex;
+}
+
+#member-container {
+  margin-top: 5%;
+}
+
+#bio ul{
+  margin: 5px 0;
+}
+
+#social {
+  margin-top: 15px;
+}
+
+#summary {
+  margin-left: 20px;
+  margin-right: 30px;
+}
+
+#summary p {
+  margin: 5px 0;
+}
+
+#voteProgress {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+
+#voteProgress > p {
   color: coral;
   position: absolute;
-  left: 35%;
   top: 44%;
+  margin: 18px 12px;
+  text-align: center;
 }
 
-a>img{
+a > img{
   width: 40px;
 }
 

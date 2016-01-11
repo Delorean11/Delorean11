@@ -1,34 +1,43 @@
 <div>
-  <div id="voteProgress">
-    <p>% Votes</p>
-  </div>
-  
-  <img ng-src="{{memberImageUrl}}" alt="{{memberInfo.name}}">
-  <div id="summary">
-    <h2>{{memberInfo.name | capitalize}}</h2>
-    <p>State: {{memberInfo.state}}</p>
-    <p>District: {{memberInfo.district}}</p>
-    <p>Party:
-      <span ng-if="memberInfo.party === 'D'">Democratic</span>
-      <span ng-if="memberInfo.party === 'R'">Republican</span>
-    </p>
+  <div class="container" id="member-container">
+    <div class="flex">
+
+      <img ng-src="{{memberImageUrl}}" alt="{{memberInfo.name}}">
+
+      <div id="summary">
+        <h2>{{memberInfo.name | capitalize}}</h2>
+        <p><span class="subheader">State:</span> {{memberInfo.state}}</p>
+        <!-- <p><span class="subheader">District:</span> {{memberInfo.district}}</p> -->
+        <p><span class="subheader">Chamber: </span>{{memberInfo.chamber | capitalize}}</p>
+        <p><span class="subheader">Party:</span>
+          <span ng-if="memberInfo.party === 'D'">Democratic</span>
+          <span ng-if="memberInfo.party === 'R'">Republican</span>
+        </p>
+        <div id="social">
+          <a ng-if="memberInfo.website" href="{{memberInfo.website}}" target="_blank"><img src="/icons/icon_web.png" alt="website"></a>
+          <a ng-if="memberInfo.facebook" href="{{memberFacebookUrl}}" target="_blank"><img src="/icons/icon_facebook.png" alt="facebook"></a>
+          <a ng-if="memberInfo.twitter" href="{{memberTwitterUrl}}" target="_blank"><img src="/icons/icon_twitter.png" alt="twitter"></a>
+        </div>
+      </div>
+
+      <div id="voteProgress">
+        <p>votes for which member was present</p>
+      </div>
+    </div>
+
+    <div id="bio">
+      <h3>Bio:</h3>
+      <ul ng-repeat="item in memberBio">
+        <li class="collection-item avatar">
+          <i class="fa fa-angle-double-right"></i>
+          <span>{{item.trim() | capitalize}}</span>
+        </li>
+      </ul>
+    </div>
+
+
   </div>
 
-  <div id="bio">
-    <h3>Bio:</h3>
-    <ul ng-repeat="item in memberBio">
-      <li class="collection-item avatar">
-        <i class="fa fa-angle-double-right"></i>
-        <span>{{item.trim() | capitalize}}</span>
-      </li>
-    </ul>
-  </div>
-
-  <div id="social">
-    <a ng-if="memberInfo.website" href="{{memberInfo.website}}" target="_blank"><img src="/icons/icon_web.png" alt="website"></a>
-    <a ng-if="memberInfo.facebook" href="{{memberFacebookUrl}}" target="_blank"><img src="/icons/icon_facebook.png" alt="facebook"></a>
-    <a ng-if="memberInfo.twitter" href="{{memberTwitterUrl}}" target="_blank"><img src="/icons/icon_twitter.png" alt="twitter"></a>
-  </div>
   <input ng-model='search' placeholder='search by bill!'></input>
   <button ng-click='increment()' > Click Me For More!</button>
   <table>

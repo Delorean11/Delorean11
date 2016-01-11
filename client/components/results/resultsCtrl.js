@@ -3,9 +3,9 @@ angular.module('Results', [])
   $scope.limit = 20;
   $scope.increment = function() {
     $scope.limit+= 10;
-  }
+  };
   var nonMissedVotes = (100 - $rootScope.memberInfo.missedVotesPerc)/100;
-  console.log(nonMissedVotes);
+  // console.log(nonMissedVotes);
   var circle = new ProgressBar.Circle('#voteProgress', {
       color: '#FCB03C',
       strokeWidth: 6,
@@ -17,11 +17,11 @@ angular.module('Results', [])
             color: 'coral',
             'font-size': 'x-large',
             left: '50%',
-            top: '47%'
+            top: '45%'
           }
       },
       step: function(state, bar) {
-          bar.setText((bar.value() * 100).toFixed(0));
+        bar.setText((bar.value() * 100).toFixed(0) + '%');
       }
   });
 
