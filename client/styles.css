@@ -1,3 +1,9 @@
+.brand-logo {
+  font-family: 'Creepster', cursive;
+  margin-left: 15px;
+  font-size: .8em;
+}
+
 .center-form {
   float: none;
 }
@@ -10,7 +16,6 @@
   font-size: 1.5em;
   cursor: pointer;
 }
-
 
 .centered {
   display: table;
