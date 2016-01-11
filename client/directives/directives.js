@@ -11,9 +11,8 @@ angular.module('Directives', [])
           var url = '//api.nytimes.com/svc/politics/v3/us/legislative/congress/members/' + id + '/votes.json?api-key=' + api_key;
           SendRequest.getRequest(url)
           .success(function(data) {
-            $rootScope.currentMember = data.results[0];
+            localStorage.setItem('currMemberVotes', JSON.stringify(data.results[0]));
             $state.go('results');
-            console.log($rootScope.currentMember.votes);
           });
         };
 
@@ -25,12 +24,7 @@ angular.module('Directives', [])
             if(localStorage.getItem('loginKey')){
               updateSearchCache({_id: localStorage.getItem('loginKey'), search: {name: name, id: data.member.id}});
             }
-            $rootScope.memberInfo = data.member;
-            $rootScope.memberBio = data.memberBio[0].split(';');
-            console.log($rootScope.memberBio);
-            $rootScope.memberImageUrl = "https://theunitedstates.io/images/congress/225x275/" + data.member.id + ".jpg";
-            $rootScope.memberFacebookUrl = "http://www.facebook.com/" + data.member.facebook;
-            $rootScope.memberTwitterUrl = "http://www.twitter.com/" + data.member.twitter;
+            localStorage.setItem('memberData', JSON.stringify(data));
             $rootScope.getAPIVotes(data.member.id);
           })
           .error(function(err) {

@@ -7,6 +7,8 @@ angular.module('Logout', [])
     }).success(function(data){
       localStorage.removeItem('loginKey');
       localStorage.removeItem('searchCache');
+      localStorage.removeItem('memberData');
+      localStorage.removeItem('currMemberVotes');
       setTimeout(function() {
         $state.go('main');
       }, 3000);
