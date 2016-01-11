@@ -25,6 +25,7 @@
     "Materialize": "materialize#~0.97.5",
     "angular-resource": "~1.4.8",
     "jquery": "~2.2.0",
-    "angular-materialize": "~0.1.2"
+    "angular-materialize": "~0.1.2",
+    "progressbar.js": "~0.9.0"
   }
 }
