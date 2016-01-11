@@ -8,7 +8,9 @@
 
 .table-items-medium {
   font-size: 1.5em;
+  cursor: pointer;
 }
+
 
 .centered {
   display: table;
@@ -21,14 +23,37 @@
   left: 20px !important;
 }
 
-#voteProgress {
-    width: 200px;
-    height: 200px;
-    float: right;
-    margin: 20px 140px;
+.subheader {
+  font-weight: bold;
 }
 
-#voteProgress>p{
+#bio-pic {
+  float: left;
+}
+
+#bio ul{
+  /*clear: both;*/
+  margin: 5px;
+}
+
+#member-container {
+  margin-top: 5%;
+}
+
+#summary {
+  float:left;
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
+#voteProgress {
+  max-width: 200px;
+  max-height: 200px;
+  float: right;
+  margin: 20px;
+}
+
+#voteProgress > p {
   color: coral;
   position: absolute;
   left: 35%;
