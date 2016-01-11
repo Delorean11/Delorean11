@@ -18,9 +18,13 @@ angular.module('Search', [])
     var url = 'api/getOneMember/'+name;
     SendRequest.getRequest(url)
     .success(function(data) {
-      console.log(data);
       $rootScope.memberInfo = data;
+      if(localStorage.getItem('loginKey')){
+        updateSearchCache({id: localStorage.getItem('loginKey'), search: {name: name, id: data.id}});
+      }
       getAPIVotes(data.id);
+    });
+  };
 
   $scope.getAllMembersFromDb = function() {
     $http({
@@ -33,7 +37,7 @@ angular.module('Search', [])
     .error(function(err) {
       console.log('members do not exist');
     })
-  }
+  };
 
   $scope.getOneMemberFromDb = function(name) {
     $http({
@@ -53,14 +57,20 @@ angular.module('Search', [])
   };
 
   var updateSearchCache = function(info){
-    $http({
-      method: 'POST',
-      url: 'api/user/cacheSearch',
-      data: info
-    })
-    .success(function(data){
-      console.log(data);
-      localStorage.setItem('searchCache', data);
-    })
-  }
+    console.log('in update search cache before request');
+    SendRequest.postRequest('/api/user/cacheSearch', info)
+      .success(function(data){
+        console.log(data, ' in update search cache after request');
+        localStorage.setItem('searchCache', data);
+      });
+    // $http({
+    //   method: 'POST',
+    //   url: 'api/user/cacheSearch',
+    //   data: info
+    // })
+    // .success(function(data){
+    //   console.log(data, ' in update search cache after request');
+    //   localStorage.setItem('searchCache', data);
+    // })
+  };
 }]);

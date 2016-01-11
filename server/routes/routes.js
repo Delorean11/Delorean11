@@ -18,8 +18,6 @@ router.get('/allMembers', function(req, res){
 });
 
 router.get('/getOneMember/:name', function(req, res){
-
-  console.log(req.params);
   CongressPerson.findOne({name: req.params.name}, function(err, person){
     //Scrape the bio first
     scraperjs.StaticScraper.create('http://bioguide.congress.gov/scripts/biodisplay.pl?index='+person.id)
@@ -75,7 +73,7 @@ router.post('/register',
     User.findOne({email: req.body.email}, function(err, user) {
       if (err) console.log(err);
       if (!user) {
-        User.create({password: req.body.password, email: req.body.email}, function(err, user){
+        User.create({password: req.body.password, email: req.body.email, searchCache: []}, function(err, user){
           if (err) console.log(err);
           //redirect to loggedin version of search page
           res.send({_id: user._id, searchCache: user.searchCache});
@@ -88,23 +86,32 @@ router.post('/register',
   }
 );
 
+
 router.post('/user/cacheSearch', function(req, res){
-  User.update({_id: req.body.id}, function(err, user){
+  User.update({_id: parseInt(req.body.id)}, function(err, user){
     var currCache = user.searchCache;
+    console.log(currCache, ' currCache in /user/cacheSearch');
+    console.log(user.email, ' user in /user/cacheSearch')
     var duplicate = false;
-    for(var i = 0; i < currCache.length; i++){
-      if(currCache[i].id === req.body.search.id) duplicate = true;
-    }
-    if(!duplicate){
-      currCache = [req.body.search].concat(currCache);
-      if(currCache.length > 10){
-        currCache.pop();
+    if(currCache){
+      for(var i = 0; i < currCache.length; i++){
+        if(currCache[i].id === req.body.search.id) duplicate = true;
       }
-      user.searchCache = currCache;
+      if(!duplicate){
+        currCache = [req.body.search].concat(currCache);
+        if(currCache.length > 10){
+          currCache.pop();
+        }
+        user.searchCache = currCache;
+        user.save();
+      }
+    }else{
+      user.searchCache = [req.body.search];
       user.save();
+      currCache = req.body.search;
     }
     res.send(currCache);
-  })
+  });
 })
 /*
 function isLoggedIn(req, res,
