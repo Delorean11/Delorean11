@@ -10,6 +10,10 @@
     <a href="{{memberInfo.website}}" target="_blank">Website</a>
   </div>
 
+  <div id="voteProgress">
+    <p>% Votes</p>
+  </div>
+
   <table>
     <tr ng-repeat="vote in currentMember.votes | limitTo:20">
       <td ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">{{vote.bill.title}} <br>{{vote.question}}</td>

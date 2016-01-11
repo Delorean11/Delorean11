@@ -9,3 +9,28 @@
 .table-items-medium {
   font-size: 1.5em;
 }
+
+.centered {
+  display: table;
+  margin: auto;
+  width: 600px;
+}
+
+.btn-search {
+  margin: 6px;
+  left: 20px !important;
+}
+
+#voteProgress {
+    width: 200px;
+    height: 200px;
+    float: right;
+    margin: -220px 140px;
+}
+
+#voteProgress>p{
+  color: coral;
+  position: absolute;
+  left: 35%;
+  top: 44%;
+}
