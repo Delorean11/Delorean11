@@ -22,7 +22,9 @@ angular.module('Directives', [])
           SendRequest.getRequest(url)
           .success(function(data) {
             console.log(data);
+            console.log("https://theunitedstates.io/images/congress/225x275/" + data.id + ".jpg");
             $rootScope.memberInfo = data;
+            $rootScope.memberImageUrl = "https://theunitedstates.io/images/congress/225x275/" + data.id + ".jpg"
             $rootScope.getAPIVotes(data.id);
           })
           .error(function(err) {
