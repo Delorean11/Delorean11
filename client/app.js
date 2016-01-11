@@ -12,10 +12,24 @@ angular.module('CongressionalStalker', [
   'ByStateResults',
   'DlFilters'
 ])
-.controller('AuthCheck', function($scope){
-  $scope.loginCheck = function(){
+.controller('AuthCheck', function($scope, $rootScope){
+  $rootScope.loginCheck = function(){
     return localStorage.getItem('loginKey') !== null;
   };
+  $rootScope.searchCacheCheck = function(){
+    return JSON.parse(localStorage.getItem('searchCache')).length > 0;
+  }
+  $rootScope.searchCache = (function(){
+      return JSON.parse(localStorage.getItem('searchCache'));
+    })();
+  $rootScope.nameCase = function(name){
+    var split = name.split(' ');
+    for(var i = 0; i < 2; i++){
+      var firstLetter = String.fromCharCode(split[i].charCodeAt(0) - 32);
+      split[i] = firstLetter + split[i].slice(1);
+    }
+    return split.join(' ');
+  }
 })
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
   function($stateProvider, $urlRouterProvider, $httpProvider) {
