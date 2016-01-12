@@ -39,15 +39,18 @@ angular.module('Results', [])
     $scope.pages.min =  (page * 10) - 10 + 1;
   };
 
-    $scope.currentPage = 1; //current page
-    $scope.maxSize = 10; //pagination max size
-    $scope.entryLimit = 10; //max rows for data table
-    console.log($rootScope.currentMember.votes)
-    /* init pagination with $scope.list */
-    $scope.noOfPages = Math.ceil($rootScope.currentMember.votes.length/$scope.entryLimit);
-  $scope.$watch('search', function(term) {
-        
-    });
+  $scope.showAll = function() {
+    $scope.showPagination = false;
+    $scope.pages.max = 100;
+    $scope.pages.min =  1;
+  }
+
+  $scope.showTen = function() {
+    $scope.showPagination = true;
+    $scope.search = "";
+    $scope.pages.max = 10;
+    $scope.pages.min =  1;
+  }
 
 }])
 .run(function($rootScope){

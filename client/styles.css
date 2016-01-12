@@ -130,8 +130,8 @@ h1 {
 .team {
   color: #008ccc;
   background: lavender;
-  margin-top: 276px;
-  margin-bottom: -276px;
+position:absolute;
+   bottom:0;
   overflow-x: hidden;
   font-family: 'Quicksand', sans-serif;
 }
