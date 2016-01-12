@@ -93,7 +93,7 @@ nav {
 }
 
 .btn {
-  background-color: #678CE5;
+  background-color: #394E7F;
 }
 
 .btn:hover {
@@ -109,3 +109,7 @@ nav {
   font-style: italic;
 }
 
+.darkishBlue {
+  background-color: #678CE5;
+  color: white;
+}
