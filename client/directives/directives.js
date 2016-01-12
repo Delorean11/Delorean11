@@ -19,6 +19,7 @@ angular.module('Directives', [])
             $rootScope.loading = false;
             $rootScope.currentMember = data.results[0];
             $state.go('results');
+
             console.log($rootScope.currentMember.votes);
           })
           .error(function(err) {
@@ -37,6 +38,7 @@ angular.module('Directives', [])
             }
             localStorage.setItem('memberData', JSON.stringify(data));
             $rootScope.getAPIVotes(data.member.id);
+            $state.go($state.current, {}, {reload: true});
           })
           .error(function(err) {
             console.log(err);
