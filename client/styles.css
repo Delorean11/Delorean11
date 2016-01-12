@@ -113,3 +113,9 @@ nav {
   background-color: #678CE5;
   color: white;
 }
+
+.loading {
+  display: table;
+  margin: auto;
+}
+
