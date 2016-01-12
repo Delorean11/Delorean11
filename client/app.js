@@ -19,9 +19,9 @@ angular.module('CongressionalStalker', [
   $rootScope.searchCacheCheck = function(){
     return JSON.parse(localStorage.getItem('searchCache')).length > 0;
   }
-  $rootScope.searchCache = (function(){
-      return JSON.parse(localStorage.getItem('searchCache'));
-    })();
+  // $rootScope.searchCache = (function(){
+  //     return JSON.parse(localStorage.getItem('searchCache'));
+  //   })();
   $rootScope.nameCase = function(name){
     var split = name.split(' ');
     for(var i = 0; i < 2; i++){
@@ -34,7 +34,6 @@ angular.module('CongressionalStalker', [
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
   function($stateProvider, $urlRouterProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
-
   $stateProvider
     .state('main', {
       url: '/',
@@ -80,19 +79,15 @@ angular.module('CongressionalStalker', [
 .factory('SearchConnector', ['$http', function($http){
   // Factory exists to pass objects from one controller to the next
   // In order to access we need to call resultObject function passing in your queryResult as a parameter to your callback function
-
   var resultObject = function (queryResult, cb){
     cb(queryResult);
   };
-
     /* example implementation:
       SearchConnector.resultObject(testObject, function(passedObject){
            console.log(passedObject);
         });
   */
-
   return {
     resultObject: resultObject
   };
-
 }]);

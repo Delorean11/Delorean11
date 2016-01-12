@@ -19,7 +19,7 @@ angular.module('Results', [])
     min: 1,
     max: 10
   };
-
+  
   //Circular animation
   var nonMissedVotes = (100 - $rootScope.memberInfo.missedVotesPerc)/100;
   var circle = new ProgressBar.Circle('#voteProgress', {
