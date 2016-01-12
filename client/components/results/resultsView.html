@@ -41,11 +41,17 @@
 
   <input ng-focus="showAll()" ng-blur="showTen()" ng-model='search' placeholder='search by bill!'></input>
   <div class="row">
-    <div  ng-if="showPagination" class="col center-align s12 card-panel lighter-blue lighten-2">Items {{pages.min}} - {{pages.max}}</div>
+    <div class="col center-align s12 card-panel lighter-blue lighten-2">
+      <span ng-if="showPagination">Items {{pages.min}} - {{pages.max}}</span>
+      <span ng-if="!showPagination">
+        <span ng-if="results.length">Results for: {{search}}</span>
+        <span ng-if="!results.length">Nothing found for "{{search}}"</span>
+      </span>
+    </div>
   </div>
 
   <table class='responsive-table bordered striped'>
-    <tr ng-repeat="vote in currentMember.votes.slice(pages.min - 1, pages.max) | filter:search">
+    <tr ng-repeat="vote in currentMember.votes.slice(pages.min - 1, pages.max) | filter:search as results">
       <td> <b>{{vote.bill.title}} <br>{{vote.question}} </b> <br> <br> <span class='date'> Date: {{vote.date}} </span></td>
       <td class= "fixed-col" ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">
         <div class="container center-align vertical-align">
