@@ -9,7 +9,7 @@ angular.module('Register', [])
     }).success(function(data){
       localStorage.setItem('loginKey', data._id);
       localStorage.setItem('searchCache', JSON.stringify(data.searchCache));
-      console.log(data.searchCache);
+      // console.log(data.searchCache);
       window.location.href = '/';
     });
   };
