@@ -50,7 +50,7 @@ angular.module('Results', [])
     console.log(page);
     $scope.prevMax = $scope.pages.max;
     $scope.pages.max = page * 10;
-    $scope.pages.min =  (page * 10) - 10 + 1
-  }
+    $scope.pages.min =  (page * 10) - 10 + 1;
+  };
 
 }]);
