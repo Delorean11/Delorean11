@@ -13,15 +13,15 @@ angular.module('CongressionalStalker', [
   'DlFilters'
 ])
 .controller('AuthCheck', function($scope, $rootScope){
+  $rootScope.searchCache = (function(){
+      return JSON.parse(localStorage.getItem('searchCache'));
+    })();
   $rootScope.loginCheck = function(){
     return localStorage.getItem('loginKey') !== null;
   };
   $rootScope.searchCacheCheck = function(){
     return JSON.parse(localStorage.getItem('searchCache')).length > 0;
   }
-  // $rootScope.searchCache = (function(){
-  //     return JSON.parse(localStorage.getItem('searchCache'));
-  //   })();
   $rootScope.nameCase = function(name){
     var split = name.split(' ');
     for(var i = 0; i < 2; i++){
