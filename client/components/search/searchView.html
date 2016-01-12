@@ -6,21 +6,22 @@
   </div>
 </div>
 <div dl-search-member></div>
+
 <div class="loading" ng-if="loading">
   <img src="/images/ring.gif">
 </div>
 
-<!-- <div class="row team">
+<div class="row team center-align">
   <div class="col s12">
-  <h2>The Team</h2>
+    <h2>The Team</h2>
   </div>
 </div>
 <div class="row team">
-  <div class="col s12">
-    <div class="team-member">
-      <img src="{{teamMemberImage}}" alt="">
-      <h3>{{teamMemberName}}</h3>
-      <p>{{teamMemberRole}}</p>
+  <div class="col s12 shift-right">
+    <div class="col s3 team-member" ng-repeat="member in teamMembers | orderBy:'-name'">
+      <img ng-src="{{member.image}}" alt="">
+      <h1>{{member.name}}</h1>
+      <p>{{member.role}}</p>
     </div>
   </div>
-</div> -->
+</div>

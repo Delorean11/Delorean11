@@ -25,16 +25,6 @@
       </div>
     </div>
 
-<!--     <div id="bio">
-      <h3>Bio:</h3>
-      <ul ng-repeat="item in memberBio">
-        <li class="collection-item avatar">
-          <i class="fa fa-angle-double-right"></i>
-          <span>{{item.trim() | capitalize}}</span>
-        </li>
-      </ul>
-    </div> -->
-
     <div id="bio">
       <h3>Bio:</h3>
       <table class='responsive-table bordered striped'> 
@@ -49,24 +39,24 @@
 
     <div class='row'> </div>
 
-  <input ng-model='search' placeholder='search by bill!'></input>
+  <input ng-focus="showPagination=false" ng-blur="showPagination=true" ng-model='search' placeholder='search by bill!'></input>
   <div class="row">
-    <div class="col center-align s12 card-panel lighter-blue lighten-2">Pages {{pages.min}} - {{pages.max}}</div>
+    <div  ng-if="showPagination" class="col center-align s12 card-panel lighter-blue lighten-2">Items {{pages.min}} - {{pages.max}}</div>
   </div>
 
   <table class='responsive-table bordered striped'>
-    <tr ng-repeat="vote in currentMember.votes.slice(pages.min - 1, pages.max) | filter:search">
+    <tr ng-repeat="vote in currentMember.votes | limitTo : pages.max : pages.min | filter:search">
       <td> <b>{{vote.bill.title}} <br>{{vote.question}} </b> <br> <br> <span class='date'> Date: {{vote.date}} </span></td>
-      <td ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">
-      <div class="container center-align vertical-align">
-        <i ng-if="vote.position === 'Yes' " class="material-icons center-align">check_circle</i>
-        <i ng-if="vote.position === 'No' " class="material-icons center-align">clear</i>
-      </div>
+      <td class= "fixed-col" ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">
+        <div class="container center-align vertical-align">
+          <i ng-if="vote.position === 'Yes' " class="material-icons center-align">check_circle</i>
+          <i ng-if="vote.position === 'No' " class="material-icons center-align">clear</i>
+        </div>
       </td>
     </tr>
   </table>
 
-  <div class="row card-panel lighter-blue lighten-2">
+  <div ng-if="showPagination" class="row card-panel lighter-blue lighten-2">
     <div class="col s12 center-align">
       <pagination
       page="1"
