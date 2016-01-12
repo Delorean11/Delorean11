@@ -38,6 +38,7 @@
 
 #member-container {
   margin-top: 5%;
+  margin-bottom: 30px;
 }
 
 #bio ul{
@@ -118,8 +119,9 @@ nav {
 .loading {
   margin: auto;
   position: absolute;
-  top: 50%;
+  top: 38%;
   left: 50%;
+  z-index: 10;
 }
 
 h1 {
