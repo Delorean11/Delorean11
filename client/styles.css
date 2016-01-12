@@ -88,4 +88,28 @@ a > img{
   left: 50%;
 }
 
+nav {
+  background-color: #1D2740;
+}
 
+.btn {
+  background-color: #394E7F;
+}
+
+.btn:hover {
+  background-color: #5675BF;
+}
+
+.btn:active {
+  background-color: #5675BF;
+}
+
+.date{
+  font-size: 110%;
+  font-style: italic;
+}
+
+.darkishBlue {
+  background-color: #678CE5;
+  color: white;
+}

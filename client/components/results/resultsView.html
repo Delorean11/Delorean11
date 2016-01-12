@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div id="bio">
+<!--     <div id="bio">
       <h3>Bio:</h3>
       <ul ng-repeat="item in memberBio">
         <li class="collection-item avatar">
@@ -33,8 +33,21 @@
           <span>{{item.trim() | capitalize}}</span>
         </li>
       </ul>
+    </div> -->
+
+    <div id="bio">
+      <h3>Bio:</h3>
+      <table class='responsive-table bordered striped'> 
+        <tr ng-repeat="item in memberBio">
+          <td class="collection-item avatar">
+            <i class="fa fa-angle-double-right"></i>
+            <span>{{item.trim() | title}}</span>
+          </td>
+        </tr>
+      </table> 
     </div>
-  </div>
+
+    <div class='row'> </div>
 
   <input ng-model='search' placeholder='search by bill!'></input>
   <div class="row">
@@ -43,7 +56,7 @@
 
   <table class='responsive-table bordered striped'>
     <tr ng-repeat="vote in currentMember.votes.slice(pages.min - 1, pages.max) | filter:search">
-      <td> {{vote.bill.title}} <br>{{vote.question}}</td>
+      <td> <b>{{vote.bill.title}} <br>{{vote.question}} </b> <br> <br> <span class='date'> Date: {{vote.date}} </span></td>
       <td ng-class="{red: vote.position === 'No', green: vote.position === 'Yes'}">
       <div class="container center-align vertical-align">
         <i ng-if="vote.position === 'Yes' " class="material-icons center-align">check_circle</i>
