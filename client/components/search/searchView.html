@@ -11,12 +11,8 @@
   <img src="/images/ring.gif">
 </div>
 
-<div class="row team center-align">
-  <div class="col s12">
-    <h2>The Team</h2>
-  </div>
-</div>
 <div class="row team">
+  <h2 class="center-align">The Team</h2>
   <div class="col s12 shift-right">
     <div class="col s3 team-member" ng-repeat="member in teamMembers | orderBy:'-name'">
       <img ng-src="{{member.image}}" alt="">

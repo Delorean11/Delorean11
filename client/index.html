@@ -15,7 +15,7 @@
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">Congressional Stalker</a>
       <ul class="right hide-on-med-and-down">
-        <li ng-if='loginCheck()'><a href='#' data-activates='searches-nav' data-sidenav='right' data-menuwidth='200' data-closeonclick='true'>Previous Searches</a></li>
+        <li ng-if='loginCheck()'><a href='#' data-activates='searches-nav' data-sidenav='right' data-menuwidth='200' data-closeonclick='true'><i class="fa fa-clock-o left"></i>Previous Searches</a></li>
         <li ng-if='!loginCheck()'><a ui-sref="register"><i class="fa fa-user left"></i>Register</a></li>
         <li ng-if='!loginCheck()'><a ui-sref="login"><i class="fa fa-sign-in left"></i>Login</a></li>
         <li ng-if="loginCheck()"><a ui-sref="logout"><i class="fa fa-sign-out left"></i>Logout</a></li>
