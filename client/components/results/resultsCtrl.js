@@ -1,5 +1,20 @@
 angular.module('Results', [])
 .controller('ResultsController',['$scope', '$rootScope', function($scope, $rootScope){
+  $scope.init = function(){
+    if(localStorage.getItem('memberData') !== null){
+      var data = JSON.parse(localStorage.getItem('memberData')); 
+      $rootScope.memberInfo = data.member;
+      $rootScope.memberBio = data.memberBio[0].split(';');
+      $rootScope.memberImageUrl = "https://theunitedstates.io/images/congress/225x275/" + data.member.id + ".jpg";
+      $rootScope.memberFacebookUrl = "http://www.facebook.com/" + data.member.facebook;
+      $rootScope.memberTwitterUrl = "http://www.twitter.com/" + data.member.twitter;
+      
+      data = JSON.parse(localStorage.getItem('currMemberVotes'));
+      $rootScope.currentMember = data;
+    }
+  }
+  $scope.init();
+
   $scope.pages = {
     min: 1,
     max: 10
@@ -35,6 +50,12 @@ angular.module('Results', [])
     console.log(page);
     $scope.prevMax = $scope.pages.max;
     $scope.pages.max = page * 10;
+<<<<<<< HEAD
+    $scope.pages.min =  (page * 10) - 10 + 1;
+  };
+
+}]);
+=======
     $scope.pages.min =  (page * 10) - 10 + 1
   }
 }])
@@ -51,3 +72,4 @@ angular.module('Results', [])
     $rootScope.currentMember = data;
   }
 });
+>>>>>>> Delorean11/master
