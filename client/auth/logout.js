@@ -1,5 +1,6 @@
 angular.module('Logout', [])
-.controller('LogoutController', ['$http','$state', function($http, $state){
+.controller('LogoutController', ['$scope', '$http','$state', '$interval', function($scope, $http, $state, $interval){
+  $scope.timer = 3;
   var newHttpRequest = function(){
     $http({
       method: 'GET',
@@ -9,9 +10,12 @@ angular.module('Logout', [])
       localStorage.removeItem('searchCache');
       localStorage.removeItem('memberData');
       localStorage.removeItem('currMemberVotes');
-      setTimeout(function() {
-        $state.go('main');
-      }, 3000);
+      $interval(function() {
+        $scope.timer--;
+        if($scope.timer === 0){
+          $state.go('main');
+        }
+      }, 1000, 0);
     });
   };
   newHttpRequest();

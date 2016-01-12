@@ -1,6 +1,6 @@
 angular.module('Results', [])
-.controller('ResultsController',['$scope', '$rootScope', function($scope, $rootScope){
-
+.controller('ResultsController',['$scope', '$rootScope', 'filterFilter', function($scope, $rootScope, filterFilter){
+  $scope.showPagination = true;
   $scope.pages = {
     min: 1,
     max: 10
@@ -38,6 +38,16 @@ angular.module('Results', [])
     $scope.pages.max = page * 10;
     $scope.pages.min =  (page * 10) - 10 + 1;
   };
+
+    $scope.currentPage = 1; //current page
+    $scope.maxSize = 10; //pagination max size
+    $scope.entryLimit = 10; //max rows for data table
+    console.log($rootScope.currentMember.votes)
+    /* init pagination with $scope.list */
+    $scope.noOfPages = Math.ceil($rootScope.currentMember.votes.length/$scope.entryLimit);
+  $scope.$watch('search', function(term) {
+        
+    });
 
 }])
 .run(function($rootScope){

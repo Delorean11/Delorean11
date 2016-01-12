@@ -112,10 +112,54 @@ nav {
 .darkishBlue {
   background-color: #678CE5;
   color: white;
+  font-family: 'Convergence', sans-serif;
 }
 
 .loading {
-  display: table;
   margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+h1 {
+  font-size: 24px;
+  color: #008ccc;
+}
+
+.team {
+  color: #008ccc;
+  background: lavender;
+  margin-top: 276px;
+  margin-bottom: -276px;
+  overflow-x: hidden;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.team p {
+  color: black;
+}
+
+.shift-right {
+  margin-left: 117px !important;
+}
+
+.team-member {
+  background: lavender;
+  padding: 60px !important;
+}
+
+.team-member>img {
+  width:30%;
+  display: block;
+  position: relative;
+  height: auto;
+  z-index: 0;
+  border-radius: 50%;
+  -webkit-filter: grayscale(100%);
+}
+
+.fixed-col {
+  width:50px;
 }
 
