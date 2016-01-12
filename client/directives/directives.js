@@ -22,7 +22,6 @@ angular.module('Directives', [])
             $rootScope.loading = false;
             $rootScope.currentMember = data.results[0];
             $state.go('results');
-            // console.log($rootScope.currentMember.votes);
           })
           .error(function(err) {
             console.log("ERR: data not found");
