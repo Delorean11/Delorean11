@@ -13,9 +13,6 @@ angular.module('CongressionalStalker', [
   'DlFilters'
 ])
 .controller('AuthCheck', function($scope, $rootScope){
-  $rootScope.searchCache = (function(){
-      return JSON.parse(localStorage.getItem('searchCache'));
-    })();
   $rootScope.loginCheck = function(){
     return localStorage.getItem('loginKey') !== null;
   };
@@ -90,4 +87,14 @@ angular.module('CongressionalStalker', [
   return {
     resultObject: resultObject
   };
-}]);
+}])
+.run(function($rootScope){
+  var updateSearchCache = function(){
+    return JSON.parse(localStorage.getItem('searchCache'));
+  };
+  $rootScope.$on('$stateChangeStart', function(){
+    if(localStorage.getItem('searchCache')){
+      $rootScope.searchCache = updateSearchCache();
+    }
+  });
+});
